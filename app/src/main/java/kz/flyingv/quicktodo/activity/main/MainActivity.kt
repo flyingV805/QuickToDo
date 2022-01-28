@@ -17,11 +17,21 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        setupUI()
 
+    }
+
+    private fun setupUI(){
+        //bottom app bar, round corners
         val background = binding.bottomAppBar.background as MaterialShapeDrawable
         val shapeAppearanceModel = background.shapeAppearanceModel
         background.shapeAppearanceModel =
             shapeAppearanceModel.toBuilder().setAllCorners(CornerFamily.ROUNDED, 22f).build()
+
+        //bottom navigation view
+        binding.bottomNavigationView.background = null
+        //binding.bottomNavigationView.menu.getItem(2).isEnabled = false
+
     }
 
 }
