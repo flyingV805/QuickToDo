@@ -2,12 +2,13 @@ package kz.flyingv.quicktodo.activity.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import kz.flyingv.quicktodo.R
 import kz.flyingv.quicktodo.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : FragmentActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -16,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
+        //setSupportActionBar(binding.toolbar)
 
         setupUI()
 
