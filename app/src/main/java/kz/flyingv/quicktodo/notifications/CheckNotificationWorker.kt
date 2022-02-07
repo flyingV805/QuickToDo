@@ -9,4 +9,5 @@ class CheckNotificationWorker(appContext: Context, workerParams: WorkerParameter
     override fun doWork(): Result {
         return Result.success()
     }
+
 }
