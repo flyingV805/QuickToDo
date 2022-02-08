@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -59,9 +60,11 @@ dependencies {
 
     //storage
     implementation "androidx.room:room-runtime:2.4.1"
+    implementation "androidx.room:room-ktx:2.4.1"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.preference:preference:1.1.1'
-    annotationProcessor "androidx.room:room-compiler:2.4.1"
+    implementation 'androidx.preference:preference:1.2.0'
+    kapt "androidx.room:room-compiler:2.4.1"
+    //annotationProcessor "androidx.room:room-compiler:2.4.1"
     implementation "androidx.room:room-paging:2.4.1"
 
     //tests

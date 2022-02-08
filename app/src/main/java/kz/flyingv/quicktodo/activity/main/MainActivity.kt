@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import kz.flyingv.quicktodo.R
+import kz.flyingv.quicktodo.activity.main.viewmodel.ToDoViewModel
 import kz.flyingv.quicktodo.activity.settings.SettingsActivity
 import kz.flyingv.quicktodo.databinding.ActivityMainBinding
 
@@ -18,12 +20,17 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    //only test
+    private lateinit var viewModel: ToDoViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         setSupportActionBar(binding.toolbar)
+
+        viewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
 
         setupUI()
         setupNavigation()
@@ -53,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun newToDo(){
-
+        viewModel.addRandomTodo()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

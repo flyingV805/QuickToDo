@@ -1,6 +1,7 @@
 package kz.flyingv.quicktodo.activity.main.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,10 +36,12 @@ class CurrentToDoFragment : Fragment() {
 
         binding.todoList.setHasFixedSize(true)
         binding.todoList.layoutManager = LinearLayoutManager(requireContext())
-        binding.todoList.adapter = ToDoRecyclerAdapter()
+        val todoAdapter = ToDoRecyclerAdapter()
+        binding.todoList.adapter = todoAdapter
 
         viewModel.currentToDos.onEach {
-
+            Log.d("list update", it.size.toString())
+            todoAdapter.submitList(it)
         }.launchWhenStarted(lifecycleScope)
 
     }
