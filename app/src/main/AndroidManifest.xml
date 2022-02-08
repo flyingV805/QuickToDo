@@ -10,6 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuickToDo">
+        <activity
+            android:name=".activity.settings.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
         <!--
         <activity
             android:name=".activity.main.MainActivity"
@@ -20,10 +24,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

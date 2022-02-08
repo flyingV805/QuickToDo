@@ -3,12 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@+id/navigation_current">
+    app:startDestination="@+id/current">
 
     <fragment
-        android:id="@+id/navigation_current"
+        android:id="@+id/current"
         android:name="kz.flyingv.quicktodo.activity.main.fragments.CurrentToDoFragment"
-        android:label="@string/hello_blank_fragment"
+        android:label="@string/current_todos"
         tools:layout="@layout/fragment_current_todo" />
+
+    <fragment
+        android:id="@+id/done"
+        android:name="kz.flyingv.quicktodo.activity.main.fragments.DoneToDoFragment"
+        android:label="@string/successful_todos"
+        tools:layout="@layout/fragment_done_todo" />
+
+    <fragment
+        android:id="@+id/failed"
+        android:name="kz.flyingv.quicktodo.activity.main.fragments.FailedToDoFragment"
+        android:label="@string/failed_todos"
+        tools:layout="@layout/fragment_failed_todo" />
 
 </navigation>
