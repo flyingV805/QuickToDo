@@ -5,17 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.flow.onEach
 import kz.flyingv.quicktodo.R
+import kz.flyingv.quicktodo.activity.main.viewmodel.ToDoViewModel
 import kz.flyingv.quicktodo.adapter.ToDoRecyclerAdapter
 import kz.flyingv.quicktodo.databinding.FragmentCurrentTodoBinding
+import kz.flyingv.quicktodo.utils.launchWhenStarted
 
 class CurrentToDoFragment : Fragment() {
 
+    private lateinit var viewModel: ToDoViewModel
     private lateinit var binding: FragmentCurrentTodoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -29,6 +36,11 @@ class CurrentToDoFragment : Fragment() {
         binding.todoList.setHasFixedSize(true)
         binding.todoList.layoutManager = LinearLayoutManager(requireContext())
         binding.todoList.adapter = ToDoRecyclerAdapter()
+
+        viewModel.currentToDos.onEach {
+
+        }.launchWhenStarted(lifecycleScope)
+
     }
 
     companion object {
