@@ -12,7 +12,13 @@ interface ToDoDao {
 
     //For UI
     @Query("SELECT * FROM ToDoItem")
-    fun getAllToDo(): Flow<List<ToDoItem>>
+    fun getCurrentToDo(): Flow<List<ToDoItem>>
+
+    @Query("SELECT * FROM ToDoItem")
+    fun getCompletedToDo(): Flow<List<ToDoItem>>
+
+    @Query("SELECT * FROM ToDoItem")
+    fun getFailedToDo(): Flow<List<ToDoItem>>
 
     //Adding
     @Insert

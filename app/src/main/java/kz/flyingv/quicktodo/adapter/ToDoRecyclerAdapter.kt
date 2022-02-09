@@ -1,6 +1,7 @@
 package kz.flyingv.quicktodo.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,6 @@ import kz.flyingv.quicktodo.model.ToDoItem
 class ToDoRecyclerAdapter: RecyclerView.Adapter<ToDoViewHolder>() {
 
     private val asyncDiffer = AsyncListDiffer(this, ToDoItemDiffCallback())
-    private val itemsList = emptyList<ToDoItem>()
 
     fun submitList(list: List<ToDoItem>) {
         asyncDiffer.submitList(list)
@@ -31,4 +31,5 @@ class ToDoRecyclerAdapter: RecyclerView.Adapter<ToDoViewHolder>() {
     override fun getItemCount(): Int {
         return asyncDiffer.currentList.size
     }
+
 }

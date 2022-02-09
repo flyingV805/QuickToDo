@@ -17,6 +17,13 @@ class ToDoViewModel: ViewModel(), KoinComponent {
     private val _currentToDos = toDoRepository.currentToDo()
     val currentToDos: StateFlow<List<ToDoItem>> = _currentToDos.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
+    private val _completedToDos = toDoRepository.completeToDo()
+    val completedToDos: StateFlow<List<ToDoItem>> = _completedToDos.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+
+    private val _failedToDos = toDoRepository.failedToDo()
+    val failedToDos: StateFlow<List<ToDoItem>> = _failedToDos.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+
+
     fun addRandomTodo(){
         viewModelScope.launch(Dispatchers.IO){
             toDoRepository.addTestToDo()

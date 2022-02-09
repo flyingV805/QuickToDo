@@ -13,7 +13,7 @@ class NotificationsManager {
     }
 
     private fun createWork(context: Context){
-        val requestBuilder = OneTimeWorkRequestBuilder<CheckNotificationWorker>().setInitialDelay(20, TimeUnit.SECONDS)
+        val requestBuilder = OneTimeWorkRequestBuilder<ShowNotificationWorker>().setInitialDelay(20, TimeUnit.SECONDS)
         val data = Data.Builder()
 
         requestBuilder.setInputData(data.build())

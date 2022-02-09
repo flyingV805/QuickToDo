@@ -7,5 +7,7 @@ interface ToDoRepository {
 
     fun addTestToDo()
     fun currentToDo(): Flow<List<ToDoItem>>
+    fun completeToDo(): Flow<List<ToDoItem>>
+    fun failedToDo(): Flow<List<ToDoItem>>
 
 }

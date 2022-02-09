@@ -9,7 +9,7 @@
         android:id="@+id/current"
         android:name="kz.flyingv.quicktodo.activity.main.fragments.CurrentToDoFragment"
         android:label="@string/current_todos"
-        tools:layout="@layout/fragment_current_todo" />
+        tools:layout="@layout/fragment_todo_list" />
 
     <fragment
         android:id="@+id/done"

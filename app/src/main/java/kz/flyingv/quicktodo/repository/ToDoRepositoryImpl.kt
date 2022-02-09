@@ -19,6 +19,14 @@ class ToDoRepositoryImpl: ToDoRepository, KoinComponent {
     }
 
     override fun currentToDo(): Flow<List<ToDoItem>> {
-        return database.toDoDao().getAllToDo()
+        return database.toDoDao().getCurrentToDo()
+    }
+
+    override fun completeToDo(): Flow<List<ToDoItem>> {
+        return database.toDoDao().getCompletedToDo()
+    }
+
+    override fun failedToDo(): Flow<List<ToDoItem>> {
+        return database.toDoDao().getFailedToDo()
     }
 }

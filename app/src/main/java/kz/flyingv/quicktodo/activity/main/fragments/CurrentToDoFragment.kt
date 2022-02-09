@@ -10,16 +10,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.flow.onEach
-import kz.flyingv.quicktodo.R
 import kz.flyingv.quicktodo.activity.main.viewmodel.ToDoViewModel
 import kz.flyingv.quicktodo.adapter.ToDoRecyclerAdapter
-import kz.flyingv.quicktodo.databinding.FragmentCurrentTodoBinding
+import kz.flyingv.quicktodo.databinding.FragmentTodoListBinding
 import kz.flyingv.quicktodo.utils.launchWhenStarted
 
 class CurrentToDoFragment : Fragment() {
 
     private lateinit var viewModel: ToDoViewModel
-    private lateinit var binding: FragmentCurrentTodoBinding
+    private lateinit var binding: FragmentTodoListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +26,7 @@ class CurrentToDoFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentCurrentTodoBinding.inflate(inflater, container, false)
+        binding = FragmentTodoListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
