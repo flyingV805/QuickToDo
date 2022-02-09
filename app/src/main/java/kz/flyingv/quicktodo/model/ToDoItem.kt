@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class ToDoItem(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
-    val makeUntil: Long
+    val makeUntil: Long,
+    val toDoStatus: ToDoStatus
 )

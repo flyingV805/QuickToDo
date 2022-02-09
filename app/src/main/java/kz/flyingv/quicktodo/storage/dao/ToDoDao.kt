@@ -11,13 +11,13 @@ import kz.flyingv.quicktodo.model.ToDoItem
 interface ToDoDao {
 
     //For UI
-    @Query("SELECT * FROM ToDoItem")
+    @Query("SELECT * FROM ToDoItem WHERE toDoStatus = 0")
     fun getCurrentToDo(): Flow<List<ToDoItem>>
 
-    @Query("SELECT * FROM ToDoItem")
+    @Query("SELECT * FROM ToDoItem WHERE toDoStatus = 1")
     fun getCompletedToDo(): Flow<List<ToDoItem>>
 
-    @Query("SELECT * FROM ToDoItem")
+    @Query("SELECT * FROM ToDoItem  WHERE toDoStatus = 2")
     fun getFailedToDo(): Flow<List<ToDoItem>>
 
     //Adding
